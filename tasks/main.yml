@@ -1,0 +1,6 @@
+---
+- name: Just ensuring the repo checkout exists
+  ansible.builtin.git:
+    repo: 'https://github.com/casualsnek/waydroid_script.git'
+    dest: "{{ dir }}/{{ name }}"
+    update: no
