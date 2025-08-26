@@ -1,6 +1,12 @@
 ---
-- name: Just ensuring the repo checkout exists
+- name: git clone
   ansible.builtin.git:
     repo: 'https://github.com/casualsnek/waydroid_script.git'
-    dest: "{{ dir }}/{{ name }}"
+    dest: "{{ repo_path }}"
     update: no
+
+- name: This command will change the working directory to somedir/ and will only run when somedir/somelog.txt doesn't exist
+  ansible.builtin.shell: python3 -m venv venv
+  args:
+    chdir: "{{ repo_path }}"
+#    creates: 
