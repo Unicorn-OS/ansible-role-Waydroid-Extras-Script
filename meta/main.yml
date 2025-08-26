@@ -32,3 +32,4 @@ galaxy_info:
 
 dependencies:
 - UniInc.Git
+- UniInc.Python-venv

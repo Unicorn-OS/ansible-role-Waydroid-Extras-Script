@@ -1,0 +1,12 @@
+---
+- name: Google Apps
+  include_tasks: "install/gapps.yml"
+  when: gapps
+
+- name: ARM Translation - libndk
+  include_tasks: "install/libndk.yml"
+  when: libndk
+
+- name: ARM Translation - libhoudini
+  include_tasks: "install/libhoudini.yml"
+  when: libhoudini

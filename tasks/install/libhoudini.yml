@@ -1,0 +1,7 @@
+---
+- name: libhoudini
+  ansible.builtin.shell: venv/bin/python3 main.py install libhoudini
+  args:
+    chdir: "{{ repo_path }}"
+    creates: "{{ ansible_env.HOME }}/.cache/waydroid-script/downloads/libhoudini.zip"
+  become: true

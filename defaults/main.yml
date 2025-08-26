@@ -1,3 +1,7 @@
 ---
-dir: "{{ ansible_env.HOME }}/.uni/src }}"
+dir: "{{ ansible_env.HOME }}/.uni/src"
 
+# install in Waydroid
+gapps: true
+libndk: true
+libhoudini: true

@@ -1,12 +1,21 @@
 ---
-- name: git clone
+- name: Git clone
   ansible.builtin.git:
     repo: 'https://github.com/casualsnek/waydroid_script.git'
     dest: "{{ repo_path }}"
     update: no
 
-- name: This command will change the working directory to somedir/ and will only run when somedir/somelog.txt doesn't exist
+- name: Python Virtual Environment
   ansible.builtin.shell: python3 -m venv venv
   args:
     chdir: "{{ repo_path }}"
-#    creates: 
+    creates: "{{ repo_path }}/venv"
+
+- name: Install requirements.txt
+  ansible.builtin.shell: venv/bin/pip install -r requirements.txt
+  args:
+    chdir: "{{ repo_path }}"
+    creates: "{{ repo_path }}/venv/bin/tqdm"
+
+- name: Install in Waydroid instance
+  include_tasks: install/main.yml

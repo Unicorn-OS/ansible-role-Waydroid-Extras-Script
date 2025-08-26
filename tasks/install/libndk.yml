@@ -1,0 +1,7 @@
+---
+- name: libndk
+  ansible.builtin.shell: venv/bin/python3 main.py install libndk
+  args:
+    chdir: "{{ repo_path }}"
+    creates: "{{ ansible_env.HOME }}/.cache/waydroid-script/downloads/libndktranslation.zip"
+  become: true
