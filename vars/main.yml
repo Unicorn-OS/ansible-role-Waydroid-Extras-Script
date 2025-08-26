@@ -2,6 +2,3 @@
 name: "waydroid_script"
 
 repo_path: "{{ dir }}/{{ name }}"
-
-libndk: false
-libhoudini: false
